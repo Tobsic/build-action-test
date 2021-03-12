@@ -13,12 +13,13 @@ jobs:
     - name:
       run: |
         ./build.sh
-        #git add dist/
-        #VERSION="${GITHUB_REF/ref\/tags\//}"
-        #git commit -m "v${VERSION}"
-        #git tag --force "${VERSION}"
-        #git push --force --tags
+        git add dist/
+        VERSION="${GITHUB_REF/ref\/tags\//}"
+        git commit -m "v${VERSION}"
+        git tag --force "${VERSION}"
+        git push --force --tags
         ls -laR
+    - uses: actions/checkout@v1
     - uses: ncipollo/release-action@v1
       with:
         artifacts: "dist/"
