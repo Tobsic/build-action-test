@@ -3,7 +3,7 @@ name: Releas
 on: 
   push:
     tags:
-    - '*'
+    - '\d+\.\d+\.\d+'
 
 jobs:
   build:
@@ -13,8 +13,14 @@ jobs:
     - name:
       run: |
         ./build.sh
+        #git add dist/
+        #version="${GITHUB_REF/ref\/tags\//}"
+        #git commit -m "v${version}"
+        #git tag "v${version}"
+        #git push --tags
     - uses: ncipollo/release-action@v1
       with:
-        artifacts: "dist/"
+        artifacts: "dist/list.txt"
+        #tag: ""
         token: ${{ secrets.GITHUB_TOKEN }}
 
