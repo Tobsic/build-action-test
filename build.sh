@@ -1,3 +1,3 @@
-mkdir -p build
-ls -la > build/contents.txt
+mkdir -p dist
+ls -la > dist/contents.txt
 
