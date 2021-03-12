@@ -15,6 +15,8 @@ jobs:
         ./build.sh
         git add dist/
         VERSION="${GITHUB_REF/ref\/tags\//}"
+        git config user.email "build@github.com"
+        git config user.name "Releas Action"
         git commit -m "v${VERSION}"
         git tag --force "${VERSION}"
         git push --force --tags
