@@ -12,22 +12,13 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build
       run: |
-        ./build.sh
-        echo ${{ github.sha }} > Release.txt
-        #git add dist/
-        #VERSION="${GITHUB_REF/ref\/tags\//}"
-        #git config user.email "build@github.com"
-        #git config user.name "Releas Action"
-        #git commit -m "v${VERSION}"
-        #git tag --force "${VERSION}"
-        #git push --force --tags
-        #ls -laR
-        cat dist/contents.txt
+        mkdir dist
+        cp index.js dist/
+        tar -czvf dist.tar.gz dist/*
     - uses: softprops/action-gh-release@v1
       with:
         files: |
-          Release.txt
-          dist/contents.txt
+          dist.tar.gz
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
