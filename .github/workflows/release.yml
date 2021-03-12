@@ -13,17 +13,17 @@ jobs:
     - name:
       run: |
         ./build.sh
-        git add dist/
-        VERSION="${GITHUB_REF/ref\/tags\//}"
-        git config user.email "build@github.com"
-        git config user.name "Releas Action"
-        git commit -m "v${VERSION}"
-        git tag --force "${VERSION}"
-        git push --force --tags
-        ls -laR
+        #git add dist/
+        #VERSION="${GITHUB_REF/ref\/tags\//}"
+        #git config user.email "build@github.com"
+        #git config user.name "Releas Action"
+        #git commit -m "v${VERSION}"
+        #git tag --force "${VERSION}"
+        #git push --force --tags
+        #ls -laR
     - uses: actions/checkout@v1
     - uses: ncipollo/release-action@v1
       with:
-        artifacts: "dist/"
+        artifacts: "dist/contents.txt"
         token: ${{ secrets.GITHUB_TOKEN }}
 
