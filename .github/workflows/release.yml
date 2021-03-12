@@ -10,9 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name:
+    - name: Build
       run: |
         ./build.sh
+        echo ${{ github.sha }} > Release.txt
         #git add dist/
         #VERSION="${GITHUB_REF/ref\/tags\//}"
         #git config user.email "build@github.com"
@@ -22,10 +23,11 @@ jobs:
         #git push --force --tags
         #ls -laR
         cat dist/contents.txt
-    - uses: actions/checkout@v1
     - uses: softprops/action-gh-release@v1
       with:
-        files: "dist/contents.txt"
+        files: |
+          Release.txt
+          dist/contents.txt
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
