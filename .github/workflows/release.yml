@@ -1,0 +1,20 @@
+name: Releas
+
+on: 
+  push:
+    tags:
+    - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name:
+      run: |
+        ./build.sh
+    - uses: ncipollo/release-action@v1
+      with:
+        artifacts: "dist/"
+        token: ${{ secrets.GITHUB_TOKEN }}
+
