@@ -16,7 +16,7 @@ jobs:
         mkdir dist
         ls -la dist
         echo "dist created"
-        ech "copy index.js"
+        echo "copy index.js"
         cp index.js dist/
         ls -la dist
         cat dist/index.js
