@@ -1,0 +1,19 @@
+{
+  "name": "build-action-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tobsic/build-action-test.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Tobsic/build-action-test/issues"
+  },
+  "homepage": "https://github.com/Tobsic/build-action-test#readme"
+}
